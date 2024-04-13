@@ -25,9 +25,7 @@ if ($conn->connect_error) {
 // Check if the form is submitted
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // Validate user input
-
     $data = json_decode(file_get_contents("php://input"), true);
-
     if (empty($data['email'])) {
         $errors['email'] = "Email is required";
     } elseif (!filter_var($data['email'], FILTER_VALIDATE_EMAIL)) {
